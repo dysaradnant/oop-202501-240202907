@@ -45,7 +45,6 @@ Dalam konteks Agri-POS, OOP membantu memodelkan entitas nyata seperti Produk, Tr
 ---
 
 ## Kode Program
-(Tuliskan kode utama yang dibuat, contoh:  
 
 ### 1. Prosedural
 ```java
@@ -128,12 +127,16 @@ public class HelloFunctional {
 ---
 
 ## Hasil Eksekusi
-(<img width="1919" height="1079" alt="HelloProcedural" src="https://github.com/user-attachments/assets/34a0e3f8-f52e-4361-a54c-5b030fe22a14" />
-)
-(<img width="1919" height="1079" alt="HelloOOP" src="https://github.com/user-attachments/assets/5917db39-4eec-4d79-a88f-25733980b12b" />
-)
-(<img width="1919" height="1079" alt="HelloFuctional" src="https://github.com/user-attachments/assets/1e584432-46ae-4be5-ba4f-ae941c8be199" />
-)
+
+### 1. Prosedural
+<img width="1919" height="1079" alt="HelloProcedural" src="https://github.com/user-attachments/assets/34a0e3f8-f52e-4361-a54c-5b030fe22a14" />
+
+### 2. OOP
+<img width="1919" height="1079" alt="HelloOOP" src="https://github.com/user-attachments/assets/5917db39-4eec-4d79-a88f-25733980b12b" />
+
+### 3. Fungsional
+<img width="1919" height="1079" alt="HelloFuctional" src="https://github.com/user-attachments/assets/1e584432-46ae-4be5-ba4f-ae941c8be199" />
+
 
 ## Analisis
 1. HelloProcedural.java
