@@ -128,9 +128,12 @@ public class HelloFunctional {
 ---
 
 ## Hasil Eksekusi
-praktikum/week1-setup-hello-pos/screenshots/HelloFuctional.png
-praktikum/week1-setup-hello-pos/screenshots/HelloOOP.png
-praktikum/week1-setup-hello-pos/screenshots/HelloProcedural.png
+(<img width="1919" height="1079" alt="HelloProcedural" src="https://github.com/user-attachments/assets/34a0e3f8-f52e-4361-a54c-5b030fe22a14" />
+)
+(<img width="1919" height="1079" alt="HelloOOP" src="https://github.com/user-attachments/assets/5917db39-4eec-4d79-a88f-25733980b12b" />
+)
+(<img width="1919" height="1079" alt="HelloFuctional" src="https://github.com/user-attachments/assets/1e584432-46ae-4be5-ba4f-ae941c8be199" />
+)
 
 ## Analisis
 1. HelloProcedural.java
@@ -150,9 +153,9 @@ praktikum/week1-setup-hello-pos/screenshots/HelloProcedural.png
 - Data disimpan dalam List, lalu diproses dengan Stream API dan lambda expression.
 
 ## Kesimpulan
-- Prosedural: Fokus pada bagaimana melakukan (langkah demi langkah).
-- OOP: Fokus pada apa yang direpresentasikan (objek dan relasi antarobjek).
-- Fungsional: Fokus pada apa yang ingin dicapai (hasil transformasi data).
+- Prosedural: Fokus pada bagaimana melakukan yaitu langkah demi langkah.
+- OOP: Fokus pada apa yang direpresentasikan yaitu objek dan relasi antarobjek.
+- Fungsional: Fokus pada apa yang ingin dicapai yaitu hasil transformasi data.
 ---
 
 ## Quiz
