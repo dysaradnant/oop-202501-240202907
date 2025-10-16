@@ -1,5 +1,5 @@
-# Laporan Praktikum Minggu 1
-Topik: Pengenalan Paradigma dan Setup Proyek
+# Laporan Praktikum Minggu 2
+Topik: Class dan Object (Produk Pertanian)
 
 ## Identitas
 - Nama  : Dysar Adnant Ilham Nur Asnawi
@@ -152,8 +152,14 @@ Program dijalankan → objek produk dibuat → data produk ditampilkan → ident
 ---
 
 ## Kesimpulan
+- Program ini menunjukkan cara membuat dan mengelola objek dengan OOP, memakai package agar kode lebih rapi dan mudah dikembangkan.
 
 ## Quiz
+1. Mengapa atribut sebaiknya dideklarasikan sebagai private dalam class?  
+   **Jawaban:** Agar data di dalam class terlindungi dan tidak bisa diubah langsung dari luar class. Ini menjaga keamanan dan konsistensi data (prinsip enkapsulasi).
 
-5. Bagaimana paradigma fungsional dapat membantu mengurangi kode berulang (boilerplate code)? 
-   **Jawaban:** Paradigma fungsional memungkinkan kita menulis kode yang lebih singkat dengan memanfaatkan fungsi-fungsi seperti map, filter, atau reduce. Dengan begitu, kita tidak perlu menulis perulangan manual yang panjang, sehingga kode jadi lebih bersih dan mudah dibaca.
+2. Apa fungsi getter dan setter dalam enkapsulasi?  
+   **Jawaban:** Getter digunakan untuk mengambil nilai atribut, sedangkan setter digunakan untuk mengubah nilai atribut dengan cara yang terkontrol sesuai aturan yang kita tentukan.
+
+3. Bagaimana cara class `Produk` mendukung pengembangan aplikasi POS yang lebih kompleks?  
+   **Jawaban:** Class Produk menjadi dasar pengelolaan data barang (kode, nama, harga, stok). Dengan struktur ini, program bisa dikembangkan lebih mudah, misalnya menambah fitur penjualan, laporan stok, atau integrasi ke database.
