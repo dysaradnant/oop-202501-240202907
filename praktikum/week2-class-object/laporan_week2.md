@@ -158,7 +158,7 @@ Program dijalankan → objek produk dibuat → data produk ditampilkan → ident
 1. Mengapa atribut sebaiknya dideklarasikan sebagai private dalam class?  
    **Jawaban:** Agar data di dalam class terlindungi dan tidak bisa diubah langsung dari luar class. Ini menjaga keamanan dan konsistensi data (prinsip enkapsulasi).
 
-2. Apa fungsi getter dan setter dalam enkapsulasi?  
+2. Apa fungsi getter dan setter dalam enkapsulasi?   
    **Jawaban:** Getter digunakan untuk mengambil nilai atribut, sedangkan setter digunakan untuk mengubah nilai atribut dengan cara yang terkontrol sesuai aturan yang kita tentukan.
 
 3. Bagaimana cara class `Produk` mendukung pengembangan aplikasi POS yang lebih kompleks?  
