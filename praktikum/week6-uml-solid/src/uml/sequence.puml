@@ -1,0 +1,75 @@
+@startuml
+
+actor "Kasir" as Kasir
+participant "Sistem Login" as Login
+participant "Sistem Produk" as Produk
+participant "Sistem Transaksi" as Transaksi
+participant "Sistem Pembayaran" as Pembayaran
+participant "Pembayaran Tunai" as Tunai
+participant "Pembayaran E-Wallet" as EWallet
+participant "Payment Gateway" as Gateway
+participant "Sistem Struk" as Struk
+
+' === 1. LOGIN ===
+Kasir -> Login: login(username, password)
+Login --> Kasir: login berhasil
+
+' === 2. BUAT TRANSAKSI ===
+Kasir -> Transaksi: buatTransaksiBaru()
+Transaksi -> Produk: ambilDaftarProduk()
+Produk --> Transaksi: daftar produk tersedia
+
+Kasir -> Transaksi: tambahProduk(idProduk, jumlah)
+Transaksi -> Produk: cekStok(idProduk, jumlah)
+Produk --> Transaksi: stok tersedia
+Transaksi --> Kasir: produk ditambahkan
+
+Kasir -> Transaksi: hitungTotal()
+Transaksi --> Kasir: total = Rp X
+
+' === 3. CHECKOUT ===
+Kasir -> Transaksi: mulaiCheckout()
+Transaksi -> Transaksi: validasiData()
+
+' === 4. PILIH METODE BAYAR ===
+Kasir -> Transaksi: pilihMetodeBayar(metode)
+Transaksi -> Pembayaran: prosesPembayaran(total, metode)
+
+' === 5. PROSES PEMBAYARAN ===
+alt [Metode = "TUNAI"]
+    Pembayaran -> Tunai: bayar(total)
+    Tunai -> Kasir: mintaInputUang()
+    Kasir -> Tunai: inputJumlah(jumlah)
+    Tunai -> Tunai: hitungKembalian(total, jumlah)
+    Tunai --> Pembayaran: sukses(kembalian)
+    
+else [Metode = "E-WALLET"]
+    Pembayaran -> EWallet: bayar(total)
+    EWallet -> Kasir: pilihProvider()
+    Kasir -> EWallet: pilih("DANA")
+    
+    EWallet -> Gateway: authorize(total, "DANA")
+    
+    alt [Saldo Cukup]
+        Gateway --> EWallet: authBerhasil
+        EWallet -> Gateway: capture()
+        Gateway --> EWallet: captured
+        EWallet --> Pembayaran: sukses
+        
+    else [Saldo Tidak Cukup]
+        Gateway --> EWallet: saldoTidakCukup
+        EWallet --> Pembayaran: gagal("Saldo tidak cukup")
+        Pembayaran --> Transaksi: error
+        Transaksi --> Kasir: tampilkanError()
+        
+        
+        end
+end
+
+Pembayaran --> Transaksi: pembayaranSelesai
+
+' === 6. CETAK STRUK ===
+Transaksi -> Struk: buatStruk(data)
+Struk --> Transaksi: strukJadi
+Transaksi --> Kasir: tampilkanStruk()
+@enduml

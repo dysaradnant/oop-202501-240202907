@@ -1,0 +1,71 @@
+@startuml
+title Activity Diagram: Proses Checkout Agri-POS
+
+|Kasir|
+start
+:Login ke sistem;
+:Scan kode produk;
+:Tambah ke keranjang;
+
+repeat
+  if (Ada produk lain?) then (Ya)
+    :Scan produk berikutnya;
+  else (Tidak)
+    :Klik "Selesai";
+  endif
+repeat while (Masih ada produk?) is (Ya)
+->tidak;
+
+:Lihat total sementara;
+:Klik tombol "Checkout";
+
+|Sistem|
+:Validasi stok semua item;
+if (Semua stok cukup?) then (Ya)
+  :Hitung total akhir;
+else (Tidak)
+  :Tampilkan pesan "Stok tidak cukup";
+  |Kasir|
+  :Hapus item stok habis;
+  :Klik "Checkout" lagi;
+  detach
+endif
+
+|Kasir|
+:Pilih metode pembayaran;
+
+|Sistem|
+if (Metode = "E-Wallet") then (Ya)
+  :Minta input provider;
+  :Generate QR Code;
+  :Tunggu konfirmasi;
+  
+  if (Pembayaran sukses?) then (Ya)
+    :Simpan status sukses;
+  else (Tidak)
+    :Tampilkan "Pembayaran gagal";
+    |Kasir|
+    :Pilih metode lain;
+    stop
+  endif
+else (Tunai)
+  :Minta input uang;
+  :Hitung kembalian;
+endif
+
+|Kasir|
+if (Metode = "Tunai") then (Ya)
+  :Input jumlah uang;
+  :Berikan kembalian;
+endif
+
+|Sistem|
+:Update stok database;
+:Simpan transaksi;
+:Generate struk PDF;
+
+|Kasir|
+:Cetak struk;
+:Serahkan ke pelanggan;
+stop
+@enduml

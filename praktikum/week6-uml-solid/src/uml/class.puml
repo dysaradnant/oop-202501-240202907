@@ -1,0 +1,62 @@
+@startuml
+title Class Diagram Agri-POS
+
+' ============ ENTITAS UTAMA ============
+class Produk {
+  - kode: String
+  - nama: String
+  - kategori: String
+  - harga: double
+  - stok: int
+}
+
+class Transaksi {
+  - id: int
+  - tanggal: Date
+  - total: double
+  - metodeBayar: String
+  + hitungTotal(): double
+  + prosesBayar(metode: String): boolean
+}
+
+' ============ PEMBAYARAN ============
+interface MetodePembayaran {
+  + bayar(jumlah: double): boolean
+}
+
+class PembayaranTunai {
+  + bayar(jumlah: double): boolean
+}
+
+class PembayaranEWallet {
+  + bayar(jumlah: double): boolean
+}
+
+' ============ LAYANAN ============
+class LayananProduk {
+  + tambahProduk(produk: Produk): void
+  + perbaruiProduk(kode: String, produk: Produk): void
+  + hapusProduk(kode: String): void
+  + cariProduk(kode: String): Produk
+}
+
+class LayananPembayaran {
+  + prosesPembayaran(jumlah: double, metode: String): boolean
+}
+
+class LayananTransaksi {
+  + buatTransaksi(): Transaksi
+  + tambahItem(idTransaksi: int, produk: Produk, jumlah: int): void
+  + selesaikanTransaksi(idTransaksi: int): boolean
+}
+
+' ============ HUBUNGAN ============
+PembayaranTunai ..|> MetodePembayaran
+PembayaranEWallet ..|> MetodePembayaran
+LayananPembayaran --> MetodePembayaran
+LayananProduk --> Produk
+LayananTransaksi --> Transaksi
+Transaksi --> Produk
+
+
+@enduml
