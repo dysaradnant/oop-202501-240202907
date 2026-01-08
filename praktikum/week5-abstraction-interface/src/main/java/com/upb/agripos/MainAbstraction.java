@@ -12,6 +12,6 @@ public class MainAbstraction {
         System.out.println(((Receiptable) cash).cetakStruk());
         System.out.println(((Receiptable) ew).cetakStruk());
 
-    CreditBy.print("[NIM]", "[Nama Mahasiswa]");
+        CreditBy.print("240202907", "Dysar Adannt Ilham Nur Asnawi");
     }
 }
