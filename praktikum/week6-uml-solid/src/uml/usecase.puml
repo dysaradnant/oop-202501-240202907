@@ -1,0 +1,87 @@
+@startuml
+left to right direction
+
+skinparam usecase {
+  BackgroundColor #E6F3FF
+  BorderColor #0066CC
+}
+skinparam rectangle {
+  BackgroundColor #F0F0F0
+  BorderColor #999999
+}
+
+title "Agri-POS System\nUse Case Diagram"
+
+actor Kasir
+actor Admin
+
+' ==================== BOUNDARY LAYER ====================
+rectangle "User Interface" as UI {
+  (UI Login) as ui_login
+  (UI Produk) as ui_produk
+  (UI Keranjang) as ui_keranjang
+  (UI Checkout) as ui_checkout
+  (UI Pembayaran) as ui_pembayaran
+  (UI Struk) as ui_struk
+  (UI Laporan) as ui_laporan
+}
+
+' ==================== SYSTEM LAYER ====================
+rectangle "System Core" as SYS {
+  (Login System) as sys_login
+  (Kelola Produk) as sys_kelola
+  (Tambah Keranjang) as sys_tambah
+  (Proses Checkout) as sys_checkout
+  (Bayar) as sys_bayar
+  (Cetak Struk) as sys_struk
+  (Lihat Laporan) as sys_laporan
+  
+  (Validasi Stok) as sys_validasi
+  (Pembayaran Tunai) as sys_tunai
+  (Pembayaran E-Wallet) as sys_ewallet
+}
+
+' ==================== ACTOR TO UI ====================
+Kasir --> ui_login
+Kasir --> ui_produk
+Kasir --> ui_keranjang
+Kasir --> ui_checkout
+Kasir --> ui_pembayaran
+Kasir --> ui_struk
+
+Admin --> ui_login
+Admin --> ui_produk
+Admin --> ui_laporan
+
+' ==================== UI TO SYSTEM ====================
+ui_login --> sys_login
+ui_produk --> sys_kelola
+ui_keranjang --> sys_tambah
+ui_checkout --> sys_checkout
+ui_pembayaran --> sys_bayar
+ui_struk --> sys_struk
+ui_laporan --> sys_laporan
+
+' ==================== SYSTEM RELATIONS ====================
+sys_checkout --> sys_validasi : <<include>>
+sys_bayar --> sys_tunai : <<extend>>
+sys_bayar --> sys_ewallet : <<extend>>
+sys_tunai --> sys_struk : <<include>>
+sys_ewallet --> sys_struk : <<include>>
+
+note right of sys_kelola
+  CRUD Operations:
+  - Create
+  - Read  
+  - Update
+  - Delete
+end note
+
+note left of sys_ewallet
+  Supported:
+  - Dana
+  - OVO
+  - Gopay
+  - LinkAja
+end note
+@enduml
