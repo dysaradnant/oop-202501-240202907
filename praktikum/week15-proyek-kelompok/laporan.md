@@ -80,16 +80,16 @@ praktikum/week15-proyek-kelompok/
         └── pos.fxml         (Terminal Kasir Modern)
 ```
 ## Struktur Program (UML)
-1. ## Usecase Diagram
+## 1. ## Usecase Diagram
 <img width="1051" height="641" alt="usecase" src="https://github.com/user-attachments/assets/9a5f04c8-42a4-40cf-93a6-94cd0b3df888" />
 
-2. ## Activity Diagram
+## 2. ## Activity Diagram
 <img width="1081" height="1351" alt="activity" src="https://github.com/user-attachments/assets/5a20eb88-0328-4ee8-8055-57d752d3c72c" />
 
-3. ## Squence Pembayaran
+## 3. ## Squence Pembayaran
 <img width="1315" height="1082" alt="squence" src="https://github.com/user-attachments/assets/a88a7925-0c9d-4174-84f7-5d22b5458521" />
 
-4. ## Class Diagram
+## 4. ## Class Diagram
 <img width="1260" height="1000" alt="class" src="https://github.com/user-attachments/assets/e1f4f993-659d-46a3-ad3f-7cc7386bb353" />
 
 ## Sturktur Database (ERD)
