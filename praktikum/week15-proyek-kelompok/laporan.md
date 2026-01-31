@@ -60,7 +60,7 @@ praktikum/week15-proyek-kelompok/
 ├── transaction/           (Logika Keranjang & Penjualan)
 │   ├── Cart.java
 │   ├── CartItem.java
-    ├── Transaction.java
+|   ├── Transaction.java
 │   └── TransactionRepository.java (Simpan Laporan)
 ├── payment/               (Pola Factory Pembayaran - Opsional)
 │   ├── PaymentMethod.java
@@ -73,10 +73,10 @@ praktikum/week15-proyek-kelompok/
 │   └── ReportService.java
 ├── util/                  (Koneksi Database)
 │   └── DatabaseConnection.java
-├──resources/
-│   └── fxml/                (Desain Tampilan Antarmuka)
-│       ├── admin.fxml       (Dashboard Admin)
-│       ├── login.fxml       (Halaman Login)
+├── resources/
+    └── fxml/                (Desain Tampilan Antarmuka)
+        ├── admin.fxml       (Dashboard Admin)
+        ├── login.fxml       (Halaman Login)
         └── pos.fxml         (Terminal Kasir Modern)
 ```
 ## Struktur Program (UML)
